@@ -3,24 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <title th:text="${TituloPagina}"></title>
+<link rel="stylesheet"
+	href="/bootstrap/bootstrap.min.css">
+
 </head>
 <body>
 
-	<h1>HOLA MUNDO :)</h1>
+	<ul class="nav justify-content-center">
+		<li class="nav-item"><a class="nav-link" href="/app/home">Inicio</a></li>
+		<li class="nav-item"><a class="nav-link" href="/app/Form">Formulario</a></li>
+		<li class="nav-item"><a class="nav-link" href="/app/Integrantes">Integrantes</a></li>
+	</ul>
 	<hr>
-	<div>
-		<ul th:each ="item: ${listita} ">
-			<li th:text="${item}"></li>
-		</ul>
-	</div>	
-	<div>
-		<ul th:each="personaje : ${listita2}">
-			<li th:text="${personaje.nombres}"></li>
-			<li th:text="${personaje.alias}"></li>
-			<li th:text="${personaje.habilidad}"></li>
-		</ul>
+
+
+	<div class="container">
+		<div class="jumbotron jumbotron-fluid">
+			<div class="container">
+				<h1 class="display-4">HOLA MUNDO :)</h1>
+				<hr class="my-4">
+				<h1 class="display-4" th:text="${tituloPagina}"></h1>
+				</div>
+				<div class="container">
+				<p th:text="${Estado}" ></p>
+				<div class="card-body" >
+					<ul class="list-group list-group-flush"
+						th:each="personaje : ${listita2}">
+						<li th:text="${personaje.nombres}" class="list-group-item">An
+							item</li>
+						<li th:text="${personaje.alias}" class="list-group-item">A
+							second item</li>
+						<li th:text="${personaje.habilidad}" class="list-group-item">A
+							third item</li>
+					</ul>
+				</div>
+				<p th:text="${respuesta}"></p> 
+				</div>
+		
+</div>
+			</div>
 	
-	</div>
-	<input><input>
+	
+	
+
+<script
+	src="/bootstrap/jquery.slim.min.js"></script>
+<script
+	src="/bootstrap/bootstrap.bundle.min.js"></script>
 </body>
 </html>

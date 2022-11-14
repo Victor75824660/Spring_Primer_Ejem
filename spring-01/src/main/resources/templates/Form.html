@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Formulario</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<ul class="nav justify-content-center">
+			<li class="nav-item"><a class="nav-link" href="/app/home">Inicio</a></li>
+			<li class="nav-item"><a class="nav-link" href="/app/Form">Formulario</a></li>
+			<li class="nav-item"><a class="nav-link" href="/app/Integrantes">Integrantes</a></li>
+		</ul>
+
+		<div class="jumbotron">
+
+			<h1 class="display-4" th:text="${titulo}"></h1>
+			<div class="container" style="margin-top: 50px">
+				<hr> <!-- Thyleaf toma los nombres de los inputs no los id's -->
+				<form th:action="@{/app/formulario}" th:object="${person}" method="post"> <!-- Metodo postt -->
+					<div class="form-row">
+						<div class="form-group col-md-6"><!-- Los TH:VALUE Indican la persistencia de los datos dentro de los inputs -->
+							<label for="idNombres">Nombres</label> <input type="text" th:value="${person.nombres}"  
+								class="form-control" name="nombres" id="idNombres">
+								<div class="alert alert-danger" role="alert" th:if="${error != null && error.containsKey('nombres')}" th:text="${error.nombres}"></div>
+						</div>
+						<div class="form-group col-md-6">
+							<label for="idAlias">Alias</label> <input th:value="${person.alias}"
+								type="text" class="form-control" name="alias" id="idAlias">
+							<div class="alert alert-danger" role="alert" th:if="${error != null && error.containsKey('alias')}" th:text="${error.alias}"></div>
+
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="idTipoFruta">Tipo de Fruta</label> <input type="text" th:value="${person.tipoFruta}"
+							class="form-control" name="tipoFruta" id="idTipoFruta" >
+							<div class="alert alert-danger" role="alert" th:if="${error != null && error.containsKey('tipoFruta')}" th:text="${error.tipoFruta}"></div>
+					</div>
+
+					<div class="form-group">
+						<label for="idHabilidad">Habilidad</label> <input type="text" th:value="${person.habilidad}"
+							class="form-control" name="habilidad" id="idHabilidad">
+						<div class="alert alert-danger" role="alert" th:if="${error != null && error.containsKey('habilidad')}" th:text="${error.habilidad}"></div>
+					</div>
+					<div class="form-group">
+						<label for="idTripulacion">Tripulación</label> <input type="text" th:value="${person.tripulacion}"
+							class="form-control" name="tripulacion" id="idTripulacion" >
+							<div class="alert alert-danger" role="alert" th:if="${error != null && error.containsKey('tripulacion')}" th:text="${error.tripulacion}"></div>
+					</div>
+					<div class="form-group">
+						<label for="idRecompensa">Recompensa</label> <input type="text" th:value="${person.recompensa}"
+							class="form-control" name="recompensa" id="idRecompensa" >
+						<div class="alert alert-danger" role="alert" th:if="${error != null && error.containsKey('recompensa')}" th:text="${error.recompensa}"></div>
+							
+					</div>
+
+					<button type="submit" class="btn btn-success" value="Crear Personaje">Crear Personaje</button>
+				</form>
+			</div>
+			<hr>
+			<div>
+				<span th:text="${person.nombres}"></span><br>
+				<span th:text="${person.alias}"></span><br>
+				<span th:text="${person.tipoFruta}"></span><br>
+				<span th:text="${person.habilidad}"></span><br>
+				<span th:text="${person.tripulacion}"></span><br>
+				<span th:text="${person.recompensa}"></span><br>
+				
+				
+			</div>
+
+		</div>	
+	</div>
+
+
+
+
+</body>
+</html>

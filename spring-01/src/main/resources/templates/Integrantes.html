@@ -2,10 +2,30 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Integrantes</title>
+<title th:text="${TituloPagina}"></title>
+<link rel="stylesheet"
+	href="/bootstrap/bootstrap.min.css">
+
 </head>
 <body>
-	<a>Hola</a>
 
+	<ul class="nav justify-content-center">
+		<li class="nav-item"><a class="nav-link" href="/app/home">Inicio</a></li>
+		<li class="nav-item"><a class="nav-link" href="/app/Form">Formulario</a></li>
+		<li class="nav-item"><a class="nav-link" href="/app/Integrantes">Integrantes</a></li>
+	</ul>
+	<hr>
+
+
+	<div class="container">
+	<h1>Yo nomás</h1>
+	</div>
+	
+	
+
+<script
+	src="/bootstrap/jquery.slim.min.js"></script>
+<script
+	src="/bootstrap/bootstrap.bundle.min.js"></script>
 </body>
 </html>
